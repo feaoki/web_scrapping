@@ -6,10 +6,21 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 )
 
 func main() {
-	apiKey := "AIzaSyAA6AOiYBU8J3T9cvgvGPb_EOjrJQbxb8w"
+	credFile := "../.credenciais/credenciais.json"
+	credData, err := os.ReadFile(credFile)
+	if err != nil {
+		panic(fmt.Sprintf("Erro ao ler o arquivo de credenciais: %v", err))
+	}
+
+	var creds map[string]map[string]string
+	if err := json.Unmarshal(credData, &creds); err != nil {
+		panic(fmt.Sprintf("Erro ao fazer unmarshal das credenciais: %v", err))
+	}
+	apiKey := creds["desafio05"]["api_key"]
 
 	body := map[string]interface{}{
 		"contents": []map[string]interface{}{

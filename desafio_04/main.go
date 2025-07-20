@@ -6,10 +6,20 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 )
 
 func main() {
-	apiKey := "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"
+	credFile := "../.credenciais/credenciais.json"
+	credData, err := os.ReadFile(credFile)
+	if err != nil {
+		panic(fmt.Sprintf("Erro ao ler o arquivo de credenciais: %v", err))
+	}
+	var creds map[string]map[string]string
+	if err := json.Unmarshal(credData, &creds); err != nil {
+		panic(fmt.Sprintf("Erro ao fazer unmarshal das credenciais: %v", err))
+	}
+	apiKey := creds["desafio04"]["api_key"]
 
 	url := "https://api.openai.com/v1/chat/completions"
 	body := map[string]interface{}{
