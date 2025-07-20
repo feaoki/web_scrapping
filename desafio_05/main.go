@@ -15,12 +15,11 @@ func main() {
 	if err != nil {
 		panic(fmt.Sprintf("Erro ao ler o arquivo de credenciais: %v", err))
 	}
-
 	var creds map[string]map[string]string
 	if err := json.Unmarshal(credData, &creds); err != nil {
 		panic(fmt.Sprintf("Erro ao fazer unmarshal das credenciais: %v", err))
 	}
-	apiKey := creds["desafio05"]["api_key"]
+	apiKey := creds["desafio05"]["api"]
 
 	body := map[string]interface{}{
 		"contents": []map[string]interface{}{

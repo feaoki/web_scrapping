@@ -19,7 +19,7 @@ func main() {
 	if err := json.Unmarshal(credData, &creds); err != nil {
 		panic(fmt.Sprintf("Erro ao fazer unmarshal das credenciais: %v", err))
 	}
-	apiKey := creds["desafio04"]["api_key"]
+	apiKey := creds["desafio04"]["api"]
 
 	url := "https://api.openai.com/v1/chat/completions"
 	body := map[string]interface{}{
