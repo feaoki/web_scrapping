@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Desafio 01",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/desafio_01/main.go"
+        },
+        
+        {
+            "name": "Desafio 02",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/desafio_02/main.go",
+        },
+
+        {
+            "name": "Desafio 03",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/desafio_03/main.go",
+        }
+    ]
+}
